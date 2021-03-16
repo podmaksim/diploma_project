@@ -1,2 +1,6 @@
 pytest
 selenium
+requests
+mysql-connector-python
+json
+random

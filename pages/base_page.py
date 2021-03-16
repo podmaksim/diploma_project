@@ -7,7 +7,7 @@ class BasePage:
         self.driver = driver
         self.base_page = 'http://localhost/litecart/en/'
 
-    def open_base_page(self):
+    def open_base_page(self,):
         self.driver.get(self.base_page)
 
     def find_element(self, locator: tuple, time=10):

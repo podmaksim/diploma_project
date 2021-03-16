@@ -1,28 +1,23 @@
 from pages.base_page import BasePage
 from locators.main_page_locator import MainPageLocator
 
-user_email = 'podmaksim@gmail.com'
-password = '1111'
-
 
 class MainPage(BasePage):
 
-    def enter_email(self):
+    def login(self, email, passwd):
         email_field = self.find_element(
             MainPageLocator.LOCATOR_USER_EMAIL_FIELD)
-        email_field.send_keys(user_email)
+        email_field.send_keys(email)
 
-    def enter_password(self):
         password_field = self.find_element(
             MainPageLocator.LOCATOR_PASSWORD_FIELD)
-        password_field.send_keys(password)
+        password_field.send_keys(passwd)
 
-    def click_log(self):
         log_button = self.find_element(
             MainPageLocator.LOCATOR_LOGIN_BUTTON)
         log_button.click()
 
-    def choice_duck(self):
-        red_duck = self.find_element(
-            MainPageLocator.LOCATOR_CHOICE_RED_DUCK)
-        red_duck.click()
+    def choice_duck(self, color):
+        duck = self.find_element(
+            MainPageLocator.get_first_duck_locator_most_popular(color))
+        duck.click()
