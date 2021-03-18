@@ -1,6 +1,5 @@
 from pages.user_page import UserPage
 from locators.account_page_locator import AccountPageLocator
-import mysql.connector as mysql
 
 
 class AccountPage(UserPage):
@@ -23,17 +22,3 @@ class AccountPage(UserPage):
         button_save = self.find_element(
             AccountPageLocator.LOCATOR_BUTTON_SAVE)
         button_save.click()
-
-    def check_change_user(self, firstname_new, lastname_new):
-        db = mysql.connect(host="127.0.0.1",
-                           port="3307",
-                           user="root",
-                           password="",
-                           database='litecart')
-
-        cursor = db.cursor()
-
-        cursor.execute("SELECT firstname, lastname "
-                       "FROM lc_customers WHERE id=3")
-        customers = cursor.fetchall()
-        assert customers[0] == (firstname_new, lastname_new)

@@ -18,11 +18,11 @@ def test_change_cart(browser):
 
     selection_page = SelectionPage(browser)
     selection_page.add_to_cart()
-    sleep(3)
+    sleep(2)
 
     common_page = CommonPage(browser)
     common_page.click_go_to_cart_link()
-    sleep(3)
+    sleep(2)
 
     cart_page = CartPage(browser)
     cart_page.set_duck_quantity_in_cart(duck_quantity)
@@ -31,7 +31,6 @@ def test_change_cart(browser):
     sleep(3)
     cart_page.check_quantity(duck_quantity)
     sleep(3)
-
     cart_page.cart_cost(duck_cost)
     sleep(3)
     cart_page.click_remove_cart_button()

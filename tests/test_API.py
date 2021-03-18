@@ -2,15 +2,13 @@ from pages.api.api_def import create_user
 from pages.api.api_def import choice_user
 from pages.api.api_def import update_user
 from pages.api.api_def import choice_new_user
+from conftest import api_user_config_data
 
 import random
 import pytest
 
-
 id = ''.join([random.choice('12345') for x in range(3)])
-user_name = 'podmaksim'
-password = '1111'
-new_user_name = 'PODMAX'
+user_name, password, new_user_name = api_user_config_data()
 
 
 def test_POST():
